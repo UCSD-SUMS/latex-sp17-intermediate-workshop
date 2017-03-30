@@ -27,7 +27,7 @@ If you're interested in learning more, there are also a number of ShareLatex pro
 
 All of the tools discussed are linked [below](#useful-tools).
 
-# [Useful Tools}(#useful-tools)
+# [Useful Tools](#useful-tools)
 * Document Samples:
   * [Overleaf Gallery](https://www.overleaf.com/gallery)
 * General Purpose
