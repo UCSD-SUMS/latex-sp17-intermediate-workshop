@@ -1,5 +1,7 @@
 # :zap: latex-sp17-intro-workshop :zap:
-Source files, links, and references for the 2017 Winter Quarter *Intermediate* Latex Workshop. (This is a follow up to the introductory workshop, which can be found [here](https://github.com/UCSD-SUMS/latex-sp17-intro-workshop))
+Source files, links, and references for the 2017 Winter Quarter *Intermediate* Latex Workshop. 
+
+(This is a follow up to the introductory workshop, which can be found [here](https://github.com/UCSD-SUMS/latex-sp17-intro-workshop))
 
 # (Tentative) Topics Covered
 * Using tables and tab-aligned environments
