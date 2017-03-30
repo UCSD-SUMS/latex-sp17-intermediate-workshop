@@ -4,18 +4,20 @@ These notes detail the process we will be going through in order to write and co
 
 Pause between each numbered section to ensure that everyone is caught up. Try to take a break at the 1 hour mark.
 
-## Useful Links
-
-* General Purpose
-    * [TexZilla](https://fred-wang.github.io/TeXZilla/): A REPL for Math expressions
-    * [Detexify](http://detexify.kirelabs.org/classify.html): Find commands for unknown symbols.
-    * [Equation Editor](https://www.codecogs.com/latex/eqneditor.php) GUI for generating code for more complicated expressions
-    * [Table Generator](http://www.tablesgenerator.com/): GUI for designing tables that generates copy-pastable source code
-    * [CTAN](https://www.ctan.org/pkg): Hosts Latex packages, descriptions, and downloads.
-* For installing/using Latex on your local machine:
-    * [MikTeX](https://miktex.org/): A Latex "distribution", includes compiler and some packages
-    * [Texmaker](http://www.xm1math.net/texmaker/): A Latex IDE
-* [Online Markdown Editor](https://jbt.github.io/markdown-editor): The markdown editor used for this document
+## Topics
+* Using tables and tab-aligned environments
+* Creating your own macros and commands
+* Including and highlighting source code from programs
+* Running programs from _within_ Latex and including the output (e.g. Knitr, Sweave)
+* Packages for styling pseudocode
+* Exploring other document classes (memoir for books, beamer for presentations, etc)
+* Making your own document classes
+* Using Tikz for diagrams 
+* Installing Latex on your own computer
+* Adding colorful text
+* Creating a resume/CV
+* Submitting to an academic journal or conference proceeding
+* Latex variants/alternatives - markdown, code notebooks, etc.
 
 ## Preliminaries
 - Create an account on [Sharelatex.com](https://www.sharelatex.com/) and log in to Projects page
