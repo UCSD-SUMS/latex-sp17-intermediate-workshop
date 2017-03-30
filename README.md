@@ -1,4 +1,4 @@
-# :zap: latex-sp17-intro-workshop :zap:
+# :fire: latex-sp17-intermediate-workshop :fire:
 Source files, links, and references for the 2017 Winter Quarter *Intermediate* Latex Workshop. 
 
 (This is a follow up to the introductory workshop, which can be found [here](https://github.com/UCSD-SUMS/latex-sp17-intro-workshop))
