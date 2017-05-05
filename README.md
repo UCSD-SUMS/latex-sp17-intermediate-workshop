@@ -3,29 +3,50 @@ Source files, links, and references for the 2017 Winter Quarter *Intermediate* L
 
 (This is a follow up to the introductory workshop, which can be found [here](https://github.com/UCSD-SUMS/latex-sp17-intro-workshop))
 
-# (Tentative) Topics Covered
-* Using tables and tab-aligned environments
-* Creating your own macros and commands
-* Including and highlighting source code from programs
-* Running programs from _within_ Latex and including the output (e.g. Knitr, Sweave)
-* Packages for styling pseudocode
-* Exploring other document classes (memoir for books, beamer for presentations, etc)
-* Making your own document classes
-* Using Tikz for diagrams 
-* Installing Latex on your own computer
-* Adding colorful text
-* Creating a resume/CV
-* Submitting to an academic journal or conference proceeding
-* Latex variants/alternatives - markdown, code notebooks, etc.
+# Topics Covered
+
+* Math Mode Tricks
+  * Text within math mode
+  * Custom spacing
+  * Vertical alignment
+  * A variety of dots
+  * Declaring operators
+  * Fancy letters
+  * Overlines and overbraces
+  * Colors
+* AMS Goodies package
+  * Custom environments
+  * Proof environment
+  * Cases
+* Tabular Stuff
+  * Tabular environment
+  * Tables and booktabs
+  * Centering
+* Referencing
+  * Labels
+  * Back-references
+  * Page numbers
+  * Footnotes
+  * Bibliographies
+* Including Code
+  * Pseudo code
+  * Syntax Highlighting
+  * Including files directly
+* Diagrams
+  * Tikz
+  * Importing figures
+* Customization
+  * Macros as shortcuts
+  * Macros with parameters
+* Beamer
 
 # Getting Started
+
 1. Make sure that you have an account on [ShareLatex.com](https://www.sharelatex.com)
 2. Go to your Projects page, create a **New Project** and select **Blank Project**
 3. Get ready to follow along!
 
-If you get stuck at any point, you can refer to the fully completed documents below.
-
-If you're interested in learning more, there are also a number of ShareLatex projects that go deeper into the topics we covered available in the **References** section below. The source is also available in this repository, if you want to try downloading and compiling yourself.
+If you get stuck at any point, you can refer to the fully completed documents in this repo.
 
 All of the tools discussed are linked [below](#useful-tools).
 
