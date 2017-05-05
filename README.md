@@ -1,6 +1,8 @@
 # :fire: latex-sp17-intermediate-workshop :fire:
 Source files, links, and references for the 2017 Winter Quarter *Intermediate* Latex Workshop. 
 
+The tinyurl for this repo is [https://tinyurl.com/intlatws](https://tinyurl.com/intlatws).
+
 Be sure to fill out the [feedback form here](https://docs.google.com/forms/d/e/1FAIpQLSc_XhSBlver1KE2i_TZCUWEyyia5XNJcE67r79EBnEcmXmiPw/viewform)!
 
 (This is a follow up to the introductory workshop, which can be found [here](https://github.com/UCSD-SUMS/latex-sp17-intro-workshop).)
