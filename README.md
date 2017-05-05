@@ -56,6 +56,12 @@ If you get stuck at any point, you can refer to the fully completed documents in
 
 All of the tools discussed are linked [below](#useful-tools).
 
+
+
+# Reference
+
+A complete version of the Sharelatex project can be found at [https://www.sharelatex.com/project/5906f5202d1bf37d14367576](https://www.sharelatex.com/project/5906f5202d1bf37d14367576).
+
 # [Useful Tools](#useful-tools)
 * Document Samples:
   * [Overleaf Gallery](https://www.overleaf.com/gallery)
