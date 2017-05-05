@@ -7,6 +7,8 @@ Be sure to fill out the [feedback form here](https://docs.google.com/forms/d/e/1
 
 (This is a follow up to the introductory workshop, which can be found [here](https://github.com/UCSD-SUMS/latex-sp17-intro-workshop).)
 
+You can follow along with the [live code document](https://www.sharelatex.com/project/590cfdc6d50983d3138d86d5).
+
 # Topics Covered
 
 * Math Mode Tricks
