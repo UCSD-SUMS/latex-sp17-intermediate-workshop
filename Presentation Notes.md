@@ -1,84 +1,239 @@
-# Latex Workshop Notes
 
-These notes detail the process we will be going through in order to write and compile incrementally more complex LaTeX documents during the workshop.
 
-Pause between each numbered section to ensure that everyone is caught up. Try to take a break at the 1 hour mark.
-
-## Topics
-* Using tables and tab-aligned environments
-* Creating your own macros and commands
-* Including and highlighting source code from programs
-* Running programs from _within_ Latex and including the output (e.g. Knitr, Sweave)
-* Packages for styling pseudocode
-* Exploring other document classes (memoir for books, beamer for presentations, etc)
-* Making your own document classes
-* Using Tikz for diagrams 
-* Installing Latex on your own computer
-* Adding colorful text
-* Creating a resume/CV
-* Submitting to an academic journal or conference proceeding
-* Latex variants/alternatives - markdown, code notebooks, etc.
+# Introduction
 
 ## Preliminaries
+
 - Create an account on [Sharelatex.com](https://www.sharelatex.com/) and log in to Projects page
-- Navigate to the Github Repository: [Repository Link](https://github.com/UCSD-SUMS/latex-w17-workshop)
+- Navigate to the Github Repository: [Repository Link](https://github.com/UCSD-SUMS/latex-w17-intermediate-workshop)
+- Grab a copy of the example document handouts, start looking through and thinking about what you'd like to cover
+- Sit close to the front!
 
-------
-# Graphics: 
-Do this in a new project! Copy-paste most things to emphasize that some of these are worth saving as snippets, instead of remembering every detail.
+## Getting Started
 
-## Overview
+- Introduce selves
+- Mention that this is the first "intermediate" workshop and that feedback is appreciated
 
-**main.tex**
+# Live Coding
+
+- Start with blank document
+
+- Add some packages - stuff you'll almost always want/need
+
+  - `mathtools`: Combines many `amsmath` packages
+  - `amssymb`: You'll inevitably need a weird symbol
+  - `amsthm`: Nice math environments
+  - `hyperref`: Hyperlink all the things
+  - `float`: Mitigates the living hell of image placement
+
+- We'll pull in more specific stuff as needed
+
+- Let's write a theorem: the quadratic equation
+
+  - Use `\textbf` for bold, manually number it
+  - Do the same for 'proof'
+  - Math mode review: `$$` `\[ \]`
+    - Cue holy war!
+    - `$$` common in many tex environments (e.g. Mathjax, used on Math SE/WO), good for quick hacks but can introduce subtle bugs/spacing issues
+    - `\[ \]` Does some extra syntax checking, ams package just redefines this to be its own (super nice) `equation` environment
+  - Write combined roots with `\pm`
+  - Then use comma to separate the two roots
+  - Replace comma with `\text{and}`
+  - Show spacing using `\:`
+    - Cover other types of spacing:
+      - `\!` a little less
+      - `\,` a little more
+      - `\:` medium
+      - `\;` a lot
+        - Just `\ ` also
+      - `\quad` so much space
+      - `\qquad` wide open ranges
+    - If you like operator spacing, define your own!
+      - Binary (like $+$) or relational (like $<$)
+      - `\mathbin` or `\mathrel`
+      - ​
+
+- Improving the theorem
+
+  - Define `theorem` and `proof` environments: 
+    `\newtheorem{theorem}{Theorem}`
+  - First parameter: custom name you give this environment
+  - Second parameter: What text is displayed (in bold by default)
+  - Optional parameters: When to break the numbering
+    - `section`: By default, theorems are ordered 1,2,3... across all sections. This restarts numbering at every section break
+    - `theorem`: Attaches the counter to theorem environments instead, restarts every time there's a new theorem
+  - Call like a normal environment with begin/end
+  - Supply optional parameters for Important Theorems (tm)
+    - `\begin{theorem}[Brouwer's Fixed Point Theorem]`
+  - Can also use theorem* to turn off numbering
+  - Note: Proof is built-in! Gives us the QED box too!
+    - Change the QED symbol:
+      `\renewcommand\qedsymbol{$\blacksquare$}`
+
+- Show sgn function theorem
+
+- Show colspan theorem
+
+  - Use theorem and proof environments this time
+  - Show `\operatorname{span}` , then `DeclareMathOperator`
+  - Use pmatrix
+  - Show cdots, vdots, ddots
+  - Show left/right modifiers
+
+- Fancy letters!
+  `mathbb, mathcal, mathfrak, mathscr`
+
+- Over-stuff
+  `overline, overbrace, overset`
+
+- Colors:
+  `\usepackage[dvipsnames]{xcolor}`
+  `{\color{MidnightBlue}2x}, {\color{BrickRed}2x}`
+
+- Tabular Environments
+
+  - Alignment options:`c, l, r`
+
+- Beamer
+
+  - Frames
+  - Itemize within frames and number to generate "transitions"
+  - pause command if you just want to write text
+  - Blocks:
+    - block, alertblock, examples
+
+- Tikz
+
+  - Start with `\draw` or `\fill` , end with `;`
+    - These take params like color, thickness, etc
+  - Lines: $(x_0, y_0) -- (x_1, y_1);$
+  - Circles: $(x_0, y_0)$ circle (size pt);
+  - Bezier: `\draw (-2,2) .. controls (-1,0) and (1,0) .. (2,2);`
+    - Endpoints and control points
+  - Ellipse: `\fill[blue!50] (2.5,0) ellipse (1.5 and 0.5);`
+    - 2nd params are foci
+
+- Macros
+  `\newcommand{\ff}[2]{\mathbb{F}_{#1^{#2}}}`
+
+  ​
+
+# Code References
+
+## Math Hackery
+
+Column Space Theorem:
+
 ```latex
-\usepackage{graphicx}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\spn}{span}
+
 ...
 
-\section{Introduction}
-\begin{figure}[]
-    \centering
-    \includegraphics[width=4cm]{image1}
-    \label{fig:img1}
-    \caption{Homotopy groups of spheres}
-\end{figure}
-
-\begin{align}
-  f(x) &= (x+a)(x+b) \\
-  &= x^2 + (a+b)x + ab
-\end{align}
+\[
+\operatorname{col}(A)=
+\operatorname{col}\begin{pmatrix}
+a_{11} & \cdots & a_{12}\\
+\vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{pmatrix}
+=
+\operatorname{span}\left\{
+    \begin{pmatrix}
+        a_{11}\\\vdots\\a_{m1}
+    \end{pmatrix}
+    , \, \ldots \, ,
+    \begin{pmatrix}
+        a_{1n}\\\vdots\\a_{mn}
+    \end{pmatrix} 
+\right\}\,.
+\]
 ```
 
-## Talking Points
+Align Environment:
 
-- We've built a pretty fully-featured document so far. But since these last few bits are slightly more complex, we'll do it in a new project.
-- Setting up the new project:
-  - **Start a new blank project**
-  - Search Google for an image (png or jpg preferably), download it, then upload it into your project
-  	- I chose the term "homotopy" and got 
-![Image of Yaktocat](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Homotopy_of_pointed_circle_maps.png/220px-Homotopy_of_pointed_circle_maps.png)
-  - Rename the image **"image1.png", "image1.jpg"**, or whatever file type you found.
+```latex
+\begin{align*}
+(x+y)^3 &=(x+y)(x+y)^2\\
+        &=(x+y)(x^2+2xy+y^2)\\
+        &=x^3+2x^2y+xy^2+xy^2+2xy^2+y^3\\
+        &=x^3+3x^2y+3xy^2+y^3\,.\tag*{\qedhere}
+\end{align*}
+```
+
+Cases Environment
+
+```latex
+\[
+\operatorname{sgn}(x):=
+\begin{cases}
+1   &\text{if $x>0$}\\
+0   &\text{if $x=0$}\\
+-1  &\text{if $x<0$\,.}
+\end{cases}
+\]
+```
+
+Overstuff
+
+```latex
+\[
+a^m\cdot a^n
+=
+(\overbrace{a\cdots a}^{\text{$m$ factors}})\cdot (\overbrace{a\cdots a}^{\text{$n$ factors}})
+\overset{(*)}{=}
+\overbrace{a\cdots a\cdot a\cdots a}^{\text{$m+n$ factors}}
+=
+a^{m+n}
+\,,
+\]
+```
+
+Tabular Environments
+
+```latex
+\begin{center}
+\begin{tabular}{ c | c | c }
+ cell1 & cell2 & cell3 \\
+ \hline
+ cell4 & cell5 & cell6 \\  
+ \hline
+ cell7 & cell8 & cell9    
+\end{tabular}
+\end{center}
+```
+
+Tikz
+
+```latex
+\begin{tikzpicture}
+
+% Lines
+\draw[gray, thick] (-1,2) -- (2,-4);
+\draw[gray, thick] (-1,-1) -- (2,2);
+
+% Point
+\filldraw[black] (0,0) circle (2pt) node[anchor=west] {Intersection point};
+ 
+ % Bezier
+ \draw (-2,2) .. controls (-1,0) and (1,0) .. (2,2);
+ 
+ % Ellipse
+ \fill[blue!50] (2.5,0) ellipse (1.5 and 0.5);
+ 
+\end{tikzpicture}
+```
 
 
-- The Figure environment
-  - *The* way to include images in your documents, but this process can be very fiddly!
-  - Most of what we type into Latex is a *suggestion* to the Latex compiler of where things go and how they should be placed.
-  - Images can be very complex - differing sizes/shapes, aspect ratios, alignment, how they flow with text...there are many variables to consider
-  - So by default, your images *may* not show up exactly where you put them in the text!
-  - **Insert figure code, note bad image placement**
-  - **Add `h` option to figure to force better placement**
-  
-- The align and align\* environments
-	- **Provided by amsmath**
-	- Useful for for showing a series of calculations
-	- Also good for making multiline math line up
-	- Many other "aligned" environments behave like this one (tables, arrays/matrices, etc)
-	- User ampersands to denote 'anchors' where columns should line up\
-		- Must have the same number in each row!
-	- **Insert align code**
-	- **Demonstrate align\***
 
-- The Tikz package
-  - A *very* brief overview, so people know it exists
-  - Useful CS (graphs, trees), EE (circuits, control systems), Math (commutative diagrams). 
-  - Relatively simple, but also very powerful/extensive. Has a learning curve though.
-  - **Do not live code, just show diagram.tex after it's compiled**
+## Tables
+
+## Labels and Cross-Referencing
+
+## Source Code
+
+## Diagrams Using TikZ
+
+## Customization
+
+## Alternate Document Classes
